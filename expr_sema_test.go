@@ -829,9 +829,7 @@ func TestExprSemanticsCheckError(t *testing.T) {
 		{
 			what:  "receiver of object filter is not an object which has object element",
 			input: "env.*",
-			expected: []string{
-				"elements of object at receiver of object filtering `.*` must be type of object but got \"string\". the type of receiver was \"{string => string}\"",
-			},
+			expected: []string{},
 		},
 		{
 			what:  "receiver of object filter is an object which has no object element",

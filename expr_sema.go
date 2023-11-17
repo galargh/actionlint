@@ -649,11 +649,8 @@ func (sema *ExprSemanticsChecker) checkArrayDeref(n *ArrayDerefNode) ExprType {
 			switch mty := ty.Mapped.(type) {
 			case AnyType:
 				return &ArrayType{AnyType{}, true}
-			case *ObjectType:
-				return &ArrayType{mty, true}
 			default:
-				sema.errorf(n, "elements of object at receiver of object filtering `.*` must be type of object but got %q. the type of receiver was %q", mty.String(), ty.String())
-				return AnyType{}
+				return &ArrayType{mty, true}
 			}
 		}
 
